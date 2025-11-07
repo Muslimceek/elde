@@ -1,0 +1,140 @@
+<!-- ================================================= -->
+<!-- HERO SECTION - EL&DI STYLE (COFFEE CAFE HERO) -->
+<!-- ================================================= -->
+
+<style>
+/* ===== ОБЩИЕ НАСТРОЙКИ ===== */
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fdfaf6;
+  color: #4A2E1A;
+}
+
+/* ===== HERO СЕКЦИЯ ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(74, 46, 26, 0.5),
+      rgba(74, 46, 26, 0.5)
+    ),
+    url("images/coffee-bg.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ===== ЭФФЕКТ ПЛАВАЮЩИХ СВЕТОВ (DECORATIVE ANIMATION) ===== */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 153, 0, 0.25), transparent 70%);
+  animation: float 6s ease-in-out infinite alternate;
+}
+.hero::after {
+  top: 20%;
+  left: 70%;
+  animation-delay: 2s;
+}
+.hero::before {
+  bottom: 10%;
+  left: 10%;
+}
+
+/* ===== КОНТЕНТ HERO ===== */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeInUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+/* Заголовок */
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  animation: textSlide 2s ease forwards;
+  opacity: 0;
+}
+
+/* Подзаголовок */
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 35px;
+  color: #f2e7d5;
+  animation: fadeIn 2s ease 0.5s forwards;
+  opacity: 0;
+}
+
+/* Кнопка */
+.hero-content .btn {
+  background-color: #FF9900;
+  color: #fff;
+  padding: 14px 35px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+  animation: fadeIn 2.3s ease 1s forwards;
+  opacity: 0;
+}
+.hero-content .btn:hover {
+  background-color: #ffaa22;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 153, 0, 0.6);
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes textSlide {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-30px); }
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.3em;
+  }
+  .hero-content p {
+    font-size: 1em;
+  }
+}
+</style>
+
+<!-- ================================================= -->
+<!-- HTML HERO КОНТЕНТ -->
+<!-- ================================================= -->
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Ajoyib Kofe va Shinam Muhit</h1>
+    <p>Shaharning qoq markazida sizning har kungi kuch va ilhom manbangiz.</p>
+    <a href="#menu-placeholder" class="btn btn-primary">Menyuni Ko'rish</a>
+  </div>
+</section>

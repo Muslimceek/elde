@@ -1,0 +1,386 @@
+/* ================================================= */
+/* 0. СБРОС СТИЛЕЙ И БАЗОВЫЕ НАСТРОЙКИ */
+/* ================================================= */
+
+/* Обнуление базовых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Удобная модель коробки */
+}
+
+/* Базовые стили для всего сайта */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Пример современного шрифта */
+    line-height: 1.6;
+    color: #333; /* Темный текст для хорошей читаемости */
+    background-color: #f4f4f4; /* Светлый фон */
+}
+
+/* Ограничитель ширины контента */
+.container {
+    width: 90%;
+    max-width: 1200px; /* Максимальная ширина для больших экранов */
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Стили для заголовков */
+h1, h2, h3 {
+    font-family: 'Georgia', serif; /* Шрифты с засечками часто используют в общепите */
+    color: #4A2E1A; /* Коричневый/кофейный цвет для акцента */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+a {
+    color: #A0522D; /* Теплый коричневый для ссылок */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Общие стили для секций */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+    font-size: 1.1em;
+}
+
+/* ================================================= */
+/* 1. HEADER / НАВИГАЦИОННОЕ МЕНЮ */
+/* ================================================= */
+
+#header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.logo img {
+    height: 40px;
+    vertical-align: middle;
+}
+
+.logo span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #4A2E1A;
+    margin-left: 10px;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li a {
+    padding: 10px 15px;
+    display: block;
+    font-weight: 500;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.main-nav li a:hover {
+    color: #A0522D;
+    text-decoration: none;
+}
+
+/* ================================================= */
+/* 2. ГЛАВНЫЙ БАННЕР (HERO SECTION) */
+/* ================================================= */
+
+#hero {
+    /* Фоновое изображение (ваш images/banner.jpg) */
+    background: url('../images/banner.jpg') no-repeat center center/cover;
+    height: 60vh; /* Высота 60% от высоты видимой части экрана */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding: 0;
+}
+
+/* Затемнение для лучшей читаемости текста */
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный черный */
+}
+
+.hero-content {
+    position: relative; /* Поверх затемнения */
+    z-index: 10;
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Кнопка */
+.btn-primary {
+    display: inline-block;
+    background-color: #A0522D;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #7B3F00;
+    text-decoration: none;
+}
+
+/* ================================================= */
+/* 3. СЕКЦИЯ МЕНЮ */
+/* ================================================= */
+
+.menu-grid {
+    display: grid;
+    /* На мобильных устройствах будет 1 колонка */
+    grid-template-columns: 1fr; 
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Изображение заполнит блок без искажений */
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    color: #4A2E1A;
+    margin-bottom: 5px;
+}
+
+.menu-item .price {
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #A0522D;
+    margin-top: 10px;
+}
+
+/* ================================================= */
+/* 4. ХАРАКТЕРИСТИКИ КОФЕ */
+/* ================================================= */
+
+#coffee-info {
+    background-color: #fff;
+}
+
+.characteristics {
+    display: flex;
+    flex-direction: column; /* На мобильных в столбец */
+    gap: 20px;
+    text-align: center;
+}
+
+.char-item h3 {
+    color: #A0522D;
+    font-size: 1.3em;
+}
+
+/* ================================================= */
+/* 5. ЛОКАЦИЯ И РЕЖИМ РАБОТЫ */
+/* ================================================= */
+
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* На мобильных в 1 колонку */
+    gap: 30px;
+}
+
+.map-container iframe {
+    border-radius: 8px;
+}
+
+.info-block h3 {
+    margin-top: 20px;
+    color: #A0522D;
+}
+
+/* ================================================= */
+/* 6. КОНТАКТЫ И СОЦСЕТИ */
+/* ================================================= */
+
+.contact-details, .social-links {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contact-details p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 8px 15px;
+    border: 1px solid #A0522D;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.social-icon:hover {
+    background-color: #A0522D;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ================================================= */
+/* 7. FOOTER / ПОДВАЛ */
+/* ================================================= */
+
+#footer {
+    background-color: #4A2E1A;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+#footer a {
+    color: #fff;
+    margin-left: 15px;
+}
+
+/* ================================================= */
+/* 8. АДАПТИВНОСТЬ (МЕДИА-ЗАПРОСЫ) */
+/* ================================================= */
+
+/* Для планшетов и больших экранов (от 768px) */
+@media (min-width: 768px) {
+    
+    /* Секция Меню */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    }
+
+    /* Характеристики Кофе */
+    .characteristics {
+        flex-direction: row; /* В ряд */
+        justify-content: space-around;
+    }
+
+    /* Локация */
+    .location-grid {
+        grid-template-columns: 1.5fr 1fr; /* Карта шире, инфо уже */
+        align-items: start;
+    }
+}
+
+/* Для больших экранов (от 1024px) */
+@media (min-width: 1024px) {
+    
+    h1 {
+        font-size: 3.5em;
+    }
+
+    /* Секция Меню */
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    }
+}
+/* Добавьте это в css/styles.css для мобильного меню */
+
+/* Скрываем кнопку на больших экранах */
+.menu-toggle {
+    display: none; 
+    font-size: 1.8em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4A2E1A;
+}
+
+/* Скрываем навигацию по умолчанию на мобильных */
+.main-nav {
+    /* На мобильных устройствах, изначально скрыта */
+    display: none; 
+}
+
+/* Стилизация навигации, когда она открыта */
+.main-nav.menu-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Сместить вниз под хедером */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    padding: 10px 0;
+}
+
+.main-nav.menu-open ul {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Медиа-запрос для мобильных: показываем кнопку и скрываем обычное меню */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: block; /* Показываем кнопку-гамбургер */
+    }
+    
+    .main-nav ul {
+        display: none; /* Скрываем список навигации по умолчанию */
+    }
+    
+    .main-nav.menu-open ul {
+        display: flex; /* Показываем список, когда меню открыто */
+    }
+}

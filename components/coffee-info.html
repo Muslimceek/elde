@@ -1,0 +1,109 @@
+<style>
+/* ======== CAFE INFO MODERN STYLE ======== */
+.cafe-info-section {
+    background: linear-gradient(180deg, #faf8f6 0%, #fff 100%);
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cafe-info-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.cafe-info-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.cafe-info-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #4A2E1A;
+    font-size: 2.6em;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.cafe-info-section .section-subtitle {
+    color: #8C5A33;
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 60px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.characteristics {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+}
+
+.char-item {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(185, 145, 100, 0.15);
+    border-radius: 16px;
+    padding: 35px 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.char-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.char-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    color: #6D3B1E;
+    margin-bottom: 12px;
+}
+
+.char-item p {
+    font-family: 'Montserrat', sans-serif;
+    color: #5b4a3a;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* ==== Адаптивность ==== */
+@media (min-width: 768px) {
+    .characteristics {
+        flex-direction: row;
+        gap: 25px;
+    }
+}
+</style>
+
+<div class="container cafe-info-section">
+    <h2>EL&DI Kafesi — Did, Ta’m Va Iliqlik Manzili</h2>
+    <p class="section-subtitle">Har bir taom — bu zavq, sifat va mehmondo‘stlik uyg‘unligi.</p>
+
+    <div class="characteristics">
+        <div class="char-item">
+            <h3>Tabiiy Va Sifatli Mahsulotlar</h3>
+            <p>Biz faqat yangi go‘sht, sabzavotlar va tabiiy ziravorlardan foydalanamiz. Har bir taom — sog‘lom va to‘yimli.</p>
+        </div>
+
+        <div class="char-item">
+            <h3>Shirin Lazzatlar Va Issiq Muhit</h3>
+            <p>Kafe EL&DI — bu nafaqat taom, balki qulaylik va iliq muhit. Do‘stlar bilan suhbat uchun eng yaxshi joy.</p>
+        </div>
+
+        <div class="char-item">
+            <h3>Menuning Boy Tanlovi</h3>
+            <p>Burgers, pitsa, lavash, doner, hot-dog va ichimliklar — har bir mehmon o‘zining sevimli taomini topadi.</p>
+        </div>
+    </div>
+</div>

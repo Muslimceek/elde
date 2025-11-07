@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EL&DI | Eng yaxshi kofe va nonushta joyi</title>
+
+  <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fffdf9;
+      overflow-x: hidden;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* Простая анимация появления секций */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== ДИНАМИЧЕСКИЕ КОМПОНЕНТЫ ====== -->
+  <header id="header-placeholder"></header>
+  <section id="hero-placeholder"></section>
+  <section id="menu-placeholder"></section>
+  <section id="coffee-info-placeholder"></section>
+  <section id="location-placeholder"></section>
+  <section id="contact-placeholder"></section>
+  <footer id="footer-placeholder"></footer>
+
+  <!-- ====== ОСНОВНОЙ JS ====== -->
+  <script src="js/main.js"></script>
+
+  <!-- ====== СКРИПТ АКТИВАЦИИ АНИМАЦИЙ ====== -->
+  <script>
+    // Анимация появления секций при скролле
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) section.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>
