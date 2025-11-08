@@ -1,213 +1,278 @@
 <!-- ================================================= -->
-<!-- СЕКЦИЯ КОМПОНЕНТА: МЕНЮ (Menu) - СЕТКА (GRID) -->
+<!-- 🌿 MODERN MENU SECTION - COFFEE CAFE STYLE -->
 <!-- ================================================= -->
 
 <style>
-    /* 0. БАЗОВЫЕ СТИЛИ */
-    .container {
-        width: 90%;
-        max-width: 1200px; 
-        margin: 0 auto;
-    }
-    section {
-        padding: 80px 0;
-        border-bottom: 1px solid #f0e0d6;
-    }
-    h2 {
-        font-family: 'Playfair Display', serif; 
-        color: #4A2E1A;
-        font-size: 2.8em;
-        text-align: center;
-        margin-bottom: 10px;
-        letter-spacing: 1px;
-    }
-    p {
-        font-family: 'Montserrat', sans-serif;
-        color: #6a6a6a;
-    }
+/* ====== ОСНОВНЫЕ СТИЛИ ====== */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fdfaf6;
+  color: #4A2E1A;
+  margin: 0;
+}
 
-    /* 3. СТИЛИ MENU */
-    .menu-section {
-        background-color: #ffffff;
-        text-align: center;
-    }
+/* ====== ОБЕРТКА ====== */
+.menu-section {
+  background: linear-gradient(180deg, #fffdf8 0%, #fff9f2 100%);
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-    .section-subtitle {
-        color: #FF9900;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.2em;
-        margin-bottom: 50px;
-        font-weight: 500;
-        text-transform: uppercase;
-    }
+/* Декоративные элементы */
+.menu-section::before,
+.menu-section::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 153, 0, 0.1), transparent 70%);
+  filter: blur(40px);
+  animation: float 6s ease-in-out infinite alternate;
+}
+.menu-section::before { top: -10%; left: -10%; }
+.menu-section::after { bottom: -15%; right: -10%; animation-delay: 2s; }
 
-    /* СЕТКА */
-    .menu-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 10px;
-    }
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
 
-    .menu-item {
-        background-color: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 6px 20px rgba(74, 46, 26, 0.1);
-        cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid #f0e0d6;
-    }
+/* ====== ТЕКСТЫ ====== */
+.menu-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3em;
+  color: #4A2E1A;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease forwards;
+}
 
-    .menu-item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(255, 153, 0, 0.3);
-    }
+.menu-section .section-subtitle {
+  color: #FF9900;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  animation: fadeIn 1.5s ease forwards;
+}
 
-    .menu-item img {
-        width: 100%;
-        height: 350px; 
-        object-fit: cover; 
-        display: block;
-    }
+/* ====== СЕТКА ====== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    /* АДАПТИВНОСТЬ */
-    @media (min-width: 600px) {
-        .menu-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .menu-item img {
-            height: 300px;
-        }
-    }
+.menu-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow: 0 8px 25px rgba(74, 46, 26, 0.1);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-    @media (min-width: 900px) {
-        .menu-grid {
-            grid-template-columns: repeat(4, 1fr);
-        }
-        .menu-item img {
-            height: 250px;
-        }
-    }
+.menu-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(255, 153, 0, 0.35);
+}
 
-    .grid-info {
-        margin-top: 40px;
-        font-size: 1em;
-        color: #4A2E1A;
-        font-weight: 500;
-        padding: 10px 20px;
-        background-color: #fff4e6;
-        border-radius: 8px;
-        display: inline-block;
-    }
+.menu-item img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
 
-    /* ===== LIGHTBOX (ПОЛНОЭКРАННОЕ ОКНО) ===== */
-    .lightbox {
-        display: none; /* скрыт по умолчанию */
-        position: fixed;
-        z-index: 9999;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.9);
-        justify-content: center;
-        align-items: center;
-    }
+.menu-item:hover img {
+  transform: scale(1.07);
+}
 
-    .lightbox.active {
-        display: flex;
-        animation: fadeIn 0.3s ease;
-    }
+/* Подпись под фото */
+.menu-info {
+  padding: 18px 15px;
+  background-color: #fff;
+}
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+.menu-info h4 {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: #4A2E1A;
+  margin-bottom: 5px;
+}
 
-    .lightbox img {
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 10px;
-        box-shadow: 0 0 30px rgba(255, 153, 0, 0.4);
-    }
+.menu-info p {
+  color: #8c7a68;
+  font-size: 0.95em;
+  margin: 0;
+}
 
-    .lightbox .close-btn {
-        position: absolute;
-        top: 30px;
-        right: 40px;
-        font-size: 40px;
-        color: #fff;
-        cursor: pointer;
-        transition: color 0.3s;
-    }
+/* ====== LIGHTBOX ====== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease;
+}
 
-    .lightbox .close-btn:hover {
-        color: #FF9900;
-    }
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(255, 153, 0, 0.4);
+  animation: scaleUp 0.4s ease;
+}
+
+.lightbox .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+}
+
+.lightbox .close-btn:hover {
+  color: #FF9900;
+}
+
+/* ====== ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ====== */
+.grid-info {
+  margin-top: 40px;
+  font-size: 1em;
+  color: #4A2E1A;
+  background-color: #fff4e6;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* ====== АНИМАЦИИ ====== */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ====== АДАПТИВНОСТЬ ====== */
+@media (max-width: 768px) {
+  .menu-section h2 { font-size: 2.2em; }
+  .menu-section .section-subtitle { font-size: 1em; margin-bottom: 40px; }
+  .menu-item img { height: 220px; }
+}
+@media (max-width: 480px) {
+  .menu-section { padding: 70px 0; }
+  .menu-info h4 { font-size: 1em; }
+}
 </style>
 
 <!-- ================================================= -->
-<!-- HTML СОДЕРЖАНИЕ СЕКЦИИ (СЕТКА) -->
+<!-- 🌿 HTML КОНТЕНТ -->
 <!-- ================================================= -->
-<div class="container menu-section">
-    <h2>Bizning To'liq Menyuumiz</h2>
-    <p class="section-subtitle">KAFE NOMINING ENG YAXSHI TAOMLARI</p>
+<section class="menu-section" id="menu">
+  <h2>Bizning To‘liq Menyumiz</h2>
+  <p class="section-subtitle">KAFE NOMINING ENG YAXSHI TAOMLARI</p>
 
-    <div class="menu-grid">
-        <div class="menu-item" onclick="openMenuImage('images/menu-1.jpg')">
-            <img src="images/menu-1.jpg" alt="Menyu Bo'limi 1">
-        </div>
-        <div class="menu-item" onclick="openMenuImage('images/menu-2.jpg')">
-            <img src="images/menu-2.jpg" alt="Menyu Bo'limi 2">
-        </div>
-        <div class="menu-item" onclick="openMenuImage('images/menu-3.jpg')">
-            <img src="images/menu-3.jpg" alt="Menyu Bo'limi 3">
-        </div>
-        <div class="menu-item" onclick="openMenuImage('images/menu-4.jpg')">
-            <img src="images/menu-4.jpg" alt="Menyu Bo'limi 4">
-        </div>
-        <div class="menu-item" onclick="openMenuImage('images/menu-5.jpg')">
-            <img src="images/menu-5.jpg" alt="Menyu Bo'limi 5">
-        </div>
+  <div class="menu-grid">
+    <div class="menu-item" onclick="openMenuImage('images/menu-1.jpg')">
+      <img src="images/menu-1.jpg" alt="Kofe 1">
+      <div class="menu-info">
+        <h4>EL&DE меню</h4>
+        <p>Qahva donalaridan tayyorlangan kuchli lazzat</p>
+      </div>
     </div>
 
-    <p class="grid-info">Menyu rasmini to'liq ko'rish uchun ustiga bosing.</p>
-</div>
+    <div class="menu-item" onclick="openMenuImage('images/menu-2.jpg')">
+      <img src="images/menu-2.jpg" alt="Kofe 2">
+      <div class="menu-info">
+        <h4>EL&DE меню</h4>
+        <p>Yumshoqlik va shirin karamel notalari</p>
+      </div>
+    </div>
+
+    <div class="menu-item" onclick="openMenuImage('images/menu-3.jpg')">
+      <img src="images/menu-3.jpg" alt="Kofe 3">
+      <div class="menu-info">
+        <h4>EL&DE меню</h4>
+        <p>Sovuq energiya va tabiiy tetiklik</p>
+      </div>
+    </div>
+
+    <div class="menu-item" onclick="openMenuImage('images/menu-4.jpg')">
+      <img src="images/menu-4.jpg" alt="Kofe 4">
+      <div class="menu-info">
+        <h4>EL&DE меню</h4>
+        <p>Shokolad va kofe uyg‘unligidagi lazzat</p>
+      </div>
+    </div>
+
+    <div class="menu-item" onclick="openMenuImage('images/menu-5.jpg')">
+      <img src="images/menu-5.jpg" alt="Kofe 5">
+      <div class="menu-info">
+        <h4>EL&DE меню</h4>
+        <p>Yumshoq ko‘pik va vanil hidi</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="grid-info">Menyu rasmini to‘liq ko‘rish uchun ustiga bosing.</p>
+</section>
 
 <!-- ================================================= -->
-<!-- LIGHTBOX (ПОЛНОЭКРАННОЕ МОДАЛЬНОЕ ОКНО) -->
+<!-- 🌿 LIGHTBOX (FULLSCREEN PREVIEW) -->
 <!-- ================================================= -->
 <div class="lightbox" id="lightbox">
-    <span class="close-btn" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" src="" alt="To'liq menyu rasmi">
+  <span class="close-btn" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="To‘liq menyu rasmi">
 </div>
 
 <!-- ================================================= -->
-<!-- JAVASCRIPT -->
+<!-- 🌿 JAVASCRIPT -->
 <!-- ================================================= -->
 <script>
-    function openMenuImage(src) {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = src;
-        lightbox.classList.add('active');
-    }
+function openMenuImage(src) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  lightboxImg.src = src;
+  lightbox.classList.add('active');
+}
 
-    function closeLightbox() {
-        document.getElementById('lightbox').classList.remove('active');
-    }
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
 
-    // Закрытие по клику вне изображения или по клавише ESC
-    document.addEventListener('click', function(e) {
-        const lightbox = document.getElementById('lightbox');
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
+// Закрытие по клику вне изображения или по клавише ESC
+document.addEventListener('click', function(e) {
+  const lightbox = document.getElementById('lightbox');
+  if (e.target === lightbox) closeLightbox();
+});
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeLightbox();
-        }
-    });
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
