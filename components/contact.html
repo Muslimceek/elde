@@ -1,302 +1,290 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eldi Premium - Кофе, Бургеры, Пицца</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* БАЗОВЫЕ СТИЛИ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #fff;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        h2 {
-            font-family: 'Playfair Display', serif;
-            color: #333;
-            font-size: 2.4em;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #FF7B00, #FFA500);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-        
-        h3 {
-            font-family: 'Playfair Display', serif;
-            color: #333;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        p {
-            color: #555;
-            font-size: 1.05em;
-        }
-        
-        a {
-            color: #FF7B00;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        a:hover {
-            color: #E56A00;
-        }
-        
-        /* СЕКЦИЯ КОНТАКТОВ */
-        .contact-section {
-            background: linear-gradient(135deg, #fff 0%, #FFF8F0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100" stroke="rgba(255,123,0,0.03)" stroke-width="1"/></svg>');
-            opacity: 0.5;
-            z-index: 0;
-        }
-        
-        .contact-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .intro-text {
-            margin-bottom: 40px;
-            color: #666;
-            font-size: 1.1em;
-            text-align: center;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-        
-        .contact-details {
-            margin-bottom: 50px;
-            font-size: 1.1em;
-            line-height: 2.0;
-            display: inline-block;
-            text-align: left;
-            padding: 25px 40px;
-            border-radius: 12px;
-            background-color: #fff;
-            box-shadow: 0 10px 30px rgba(255, 123, 0, 0.08);
-            border: 1px solid rgba(255, 123, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .contact-details:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 123, 0, 0.12);
-        }
-        
-        .contact-details p {
-            margin: 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .contact-details strong {
-            color: #333;
-            margin-right: 15px;
-            min-width: 120px;
-            font-weight: 600;
-        }
-        
-        .contact-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #FF7B00, #FFA500);
-            color: white;
-            border-radius: 50%;
-            margin-right: 15px;
-            font-size: 1.2em;
-        }
-        
-        .social-links {
-            margin-top: 50px;
-            padding: 20px 0;
-        }
-        
-        .social-links h3 {
-            margin-bottom: 30px;
-            font-weight: 500;
-            font-size: 1.4em;
-            color: #333;
-            text-align: center;
-        }
-        
-        .social-icons-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .social-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 32px;
-            border: 2px solid #FF7B00;
-            border-radius: 50px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            background-color: #fff;
-            color: #FF7B00;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .social-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(135deg, #FF7B00, #FFA500);
-            transition: all 0.3s ease;
-            z-index: -1;
-        }
-        
-        .social-icon:hover {
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 123, 0, 0.2);
-        }
-        
-        .social-icon:hover::before {
-            width: 100%;
-        }
-        
-        .social-icon span {
-            margin-right: 8px;
-            font-size: 1.1em;
-        }
-        
-        /* АДАПТИВНОСТЬ */
-        @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            h2 {
-                font-size: 2em;
-            }
-            
-            .contact-details {
-                padding: 20px 25px;
-                width: 100%;
-            }
-            
-            .contact-details p {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-bottom: 15px;
-            }
-            
-            .contact-details strong {
-                margin-bottom: 5px;
-                min-width: auto;
-            }
-            
-            .social-icons-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .social-icon {
-                width: 220px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <h2>Biz bilan bog'laning</h2>
-                
-                <p class="intro-text">
-                    Barcha savollar, takliflar yoki buyurtmalar uchun biz bilan bemalol bog'lanishingiz mumkin. <br>
-                    Sizni intiqlik bilan kutamiz!
-                </p>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eldi Premium — Kofe, Burgerlar, Pitsalar</title>
 
-                <div class="contact-details">
-                    <p>
-                        <strong>
-                            <span class="contact-icon">📞</span>
-                            Telefon:
-                        </strong> 
-                        <a href="tel:+998937860044">+998 (93) 786-00-44</a>
-                    </p>
-                
-                </div>
-                
-                <div class="social-links">
-                    <h3>Bizning yangiliklarimizni kuzatib boring:</h3>
-                    
-                    <div class="social-icons-container">
-                        <a 
-                            href="https://www.instagram.com/eldi.burger?igsh=a3lpb2YwdThsNW9y" 
-                            target="_blank" 
-                            class="social-icon">
-                            <span>📸</span> Instagram
-                        </a>
-                        
-                        <a 
-                            href="https://t.me/elde_burger" 
-                            target="_blank" 
-                            class="social-icon">
-                            <span>💬</span> Telegram
-                        </a>
-                    </div>
-                </div>
-            </div>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======== RESET & BASE ======== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4em;
+      color: #2b1a10;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 90px;
+      height: 4px;
+      background: linear-gradient(90deg, #FF7B00, #FFA500);
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    a {
+      color: #FF7B00;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover { color: #E56A00; }
+
+    /* ======== CONTACT SECTION ======== */
+    .contact-section {
+      background: linear-gradient(135deg, #fff8f2 0%, #fff1e1 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,140,0,0.12) 0%, transparent 70%);
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    .contact-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .intro-text {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      color: #555;
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    /* ======== CONTACT CARD ======== */
+    .contact-card {
+      background: #fff;
+      padding: 35px 45px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(255, 123, 0, 0.08);
+      border: 1px solid rgba(255, 123, 0, 0.1);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      justify-items: center;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(255, 123, 0, 0.15);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      color: #333;
+      font-size: 1em;
+      font-weight: 500;
+    }
+
+    .contact-item i {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FF7B00, #FFA500);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+    }
+
+    /* ======== SOCIAL LINKS ======== */
+    .social-section {
+      margin-top: 60px;
+    }
+
+    .social-section h3 {
+      font-family: 'Playfair Display', serif;
+      color: #2b1a10;
+      font-size: 1.5em;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border: 2px solid #FF7B00;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #FF7B00;
+      background: #fff;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .social-btn img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+
+    .social-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 0%; height: 100%;
+      background: linear-gradient(135deg, #FF7B00, #FFA500);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+
+    .social-btn:hover {
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 123, 0, 0.25);
+    }
+
+    .social-btn:hover::before {
+      width: 100%;
+    }
+
+    /* ======== FOOTER LOGO ======== */
+    .footer-logo {
+      margin-top: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8em;
+      color: #2b1a10;
+    }
+
+    .footer-logo img {
+      height: 50px;
+    }
+
+    .copyright {
+      text-align: center;
+      color: #777;
+      font-size: 0.9em;
+      margin-top: 20px;
+    }
+
+    /* ======== RESPONSIVE ======== */
+    @media (max-width: 768px) {
+      h2 { font-size: 2em; }
+      .contact-card {
+        grid-template-columns: 1fr;
+        padding: 25px;
+      }
+      .contact-item { flex-direction: row; justify-content: flex-start; }
+      .social-btn { width: 220px; }
+      .footer-logo { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="contact-section">
+    <div class="contact-container">
+      <h2>Biz bilan bog‘laning</h2>
+      <p class="intro-text">
+        Barcha savollar, takliflar yoki buyurtmalar uchun biz bilan bemalol bog‘lanishingiz mumkin.<br>
+        Sizni intiqlik bilan kutamiz — har bir kofe va burger siz uchun tayyorlanadi!
+      </p>
+
+      <!-- CONTACT CARD -->
+      <div class="contact-card">
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <strong>Asosiy raqam:</strong><br>
+            <a href="tel:+998937860044">+998 (93) 786-00-44</a>
+          </div>
         </div>
-    </section>
+
+        <div class="contact-item">
+          <i class="fas fa-user"></i>
+          <div>
+            <strong>Ayrilish:</strong><br>
+            <a href="tel:+998505032929">+998 (50) 503-29-29</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-user"></i>
+          <div>
+            <strong>Gorotskoy:</strong><br>
+            <a href="tel:+998906213031">+998 (90) 621-30-31</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL LINKS -->
+      <div class="social-section">
+        <h3>Bizni ijtimoiy tarmoqlarda toping:</h3>
+        <div class="social-links">
+          <a href="https://www.instagram.com/eldi.burger?igsh=a3lpb2YwdThsNW9y" target="_blank" class="social-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram logo">
+            Instagram
+          </a>
+          <a href="https://t.me/elde_burger" target="_blank" class="social-btn">
+            <img src="https://webogram.org/img/Logo.svg" alt="Telegram logo">
+            Telegram
+          </a>
+        </div>
+      </div>
+
+      <!-- LOGO -->
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="Eldi Premium logo">
+        <span>Eldi Premium</span>
+      </div>
+
+      <p class="copyright">© 2025 Eldi Premium. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </section>
 </body>
 </html>
